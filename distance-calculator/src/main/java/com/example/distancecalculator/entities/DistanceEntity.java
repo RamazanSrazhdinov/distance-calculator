@@ -17,6 +17,12 @@ public class DistanceEntity {
     public DistanceEntity() {
     }
 
+    public DistanceEntity(String fromCity, String toCity, Double distance) {
+        this.fromCity = fromCity;
+        this.toCity = toCity;
+        this.distance = distance;
+    }
+
     public Long getId() {
         return id;
     }
