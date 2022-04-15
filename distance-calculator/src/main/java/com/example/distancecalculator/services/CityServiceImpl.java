@@ -1,6 +1,6 @@
 package com.example.distancecalculator.services;
 
-import com.example.distancecalculator.models.City;
+import com.example.distancecalculator.models.CityModel;
 import com.example.distancecalculator.repositories.CityRepository;
 import com.example.distancecalculator.repositories.CityModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public List<City> getCities() {
+    public List<CityModel> getCities() {
         return citySmallRepositpry.findAll();
     }
 }

@@ -1,17 +1,16 @@
 package com.example.distancecalculator.models;
-import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "city_entity")
-public class City {
+@Table(name = "city")
+public class CityModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    public City() {
+    public CityModel() {
     }
 
     public Long getId() {

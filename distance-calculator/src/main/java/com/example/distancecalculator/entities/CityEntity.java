@@ -1,18 +1,30 @@
 package com.example.distancecalculator.entities;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement(name = "city")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-@Table(name = "city_entity")
+@Table(name = "city")
 public class CityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @XmlElement(name = "name")
     private String name;
+    @XmlElement(name = "latitude")
     private Double latitude;
+    @XmlElement(name = "longitude")
     private Double longitude;
 
     public CityEntity() {
+    }
+
+    public CityEntity(String name, Double latitude, Double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Long getId() {
