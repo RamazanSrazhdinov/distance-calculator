@@ -2,6 +2,7 @@ package com.example.distancecalculator.entities;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
+import java.util.List;
 
 @XmlRootElement(name = "city")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -17,6 +18,12 @@ public class CityEntity {
     private Double latitude;
     @XmlElement(name = "longitude")
     private Double longitude;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fromCity")
+    private List<DistanceEntity> distancesFromCity;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "toCity")
+    private List<DistanceEntity> distancesToCity;
 
     public CityEntity() {
     }
