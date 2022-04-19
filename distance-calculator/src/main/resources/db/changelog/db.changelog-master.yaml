@@ -1,3 +1,11 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changeset/CRETE-CITY-AND-DISTANCE-TABLE.sql
+  - include:
+      file: db/changelog/changeset/ALTER-TABLE-DISTANCE-MODIFY-FROM_CITY.sql
+  - include:
+      file: db/changelog/changeset/ALTER-TABLE-DISTANCE-MODIFY-TO_CITY.sql
+  - include:
+      file: db/changelog/changeset/ALTER-TABLE-ADD-FOREIGN-KEY-FORM_CITY.sql
+  - include:
+      file: db/changelog/changeset/ALTER-TABLE-ADD-FOREIGN-KEY-TO_CITY.sql
