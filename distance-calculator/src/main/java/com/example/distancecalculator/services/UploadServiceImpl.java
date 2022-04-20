@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 @Service
 public class UploadServiceImpl implements UploadService {
-    private final static String PATH = "xmlDatabases/";
     private DistanceRepository distanceRepository;
     private CityRepository cityRepository;
 
