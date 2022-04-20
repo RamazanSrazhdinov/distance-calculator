@@ -1,8 +1,6 @@
 package com.example.distancecalculator.models;
 
 import com.example.distancecalculator.entities.CityEntity;
-import com.example.distancecalculator.entities.DistanceEntity;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,13 +13,13 @@ public class Entities {
     @XmlElement(name = "city")
     private List<CityEntity> listCities = null;
     @XmlElement(name = "distance")
-    private List<DistanceEntity> listDistances = null;
+    private List<DistanceConverter> listDistances = null;
 
     public List<CityEntity> getListCities() {
         return listCities;
     }
 
-    public List<DistanceEntity> getListDistances() {
+    public List<DistanceConverter> getListDistances() {
         return listDistances;
     }
 
@@ -29,7 +27,7 @@ public class Entities {
         this.listCities = listCities;
     }
 
-    public void setListDistances(List<DistanceEntity> listDistances) {
+    public void setListDistances(List<DistanceConverter> listDistances) {
         this.listDistances = listDistances;
     }
 }

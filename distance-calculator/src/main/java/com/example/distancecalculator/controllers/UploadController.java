@@ -23,21 +23,22 @@ public class UploadController {
     @ResponseBody
     public ResponseEntity uploadAll(@RequestParam("file") MultipartFile files) throws JAXBException, IOException {
         uploadServiceImpl.uploadAll(files);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/city")
     @ResponseBody
     public ResponseEntity uploadOneCity(@RequestParam("file") MultipartFile files) throws JAXBException, IOException {
         uploadServiceImpl.uploadCity(files);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok().build();
     }
+
 
     @PostMapping("/distance")
     @ResponseBody
     public ResponseEntity uploadOneDistance(@RequestParam("file") MultipartFile files) throws JAXBException, IOException {
         uploadServiceImpl.uploadDistance(files);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok().build();
     }
 
 }

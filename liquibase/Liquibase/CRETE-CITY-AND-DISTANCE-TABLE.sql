@@ -1,6 +1,5 @@
 --liquibase formatted sql
-
---changeset nvoxland:1
+--changeset ramazan:1
 create table city(
     id serial primary key,
     name varchar(255),

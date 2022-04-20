@@ -1,4 +1,4 @@
-package com.example.distancecalculator.dataParameters;
+package com.example.distancecalculator.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

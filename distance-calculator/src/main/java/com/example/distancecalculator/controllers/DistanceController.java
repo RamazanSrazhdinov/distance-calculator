@@ -1,6 +1,6 @@
 package com.example.distancecalculator.controllers;
 
-import com.example.distancecalculator.dataParameters.DistanceData;
+import com.example.distancecalculator.models.DistanceData;
 import com.example.distancecalculator.entities.CityEntity;
 import com.example.distancecalculator.exceptions.CityNotFoundException;
 import com.example.distancecalculator.exceptions.TypeCalculateNotFound;
@@ -23,14 +23,14 @@ public class DistanceController {
         this.distanceService = distanceService;
     }
 
-    @GetMapping()
+    @PostMapping()
     public ResponseEntity getDistance(@RequestBody DistanceData data){
         try {
             return ResponseEntity.ok(distanceService.getDistance(data.getType(), data.getFromCity(), data.getToCity()));
         }catch (CityNotFoundException | TypeCalculateNotFound e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.internalServerError().body(e.getMessage());
         } catch (JsonProcessingException e) {
-            return ResponseEntity.badRequest().body("Не удалось вычислить растояние");
+            return ResponseEntity.internalServerError().body("Не удалось вычислить растояние");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

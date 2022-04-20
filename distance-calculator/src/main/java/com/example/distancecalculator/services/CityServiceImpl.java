@@ -1,26 +1,29 @@
 package com.example.distancecalculator.services;
 
-import com.example.distancecalculator.models.CityModel;
+import com.example.distancecalculator.dto.CityDTO;
 import com.example.distancecalculator.repositories.CityRepository;
-import com.example.distancecalculator.repositories.CityModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Component
+@Service
 public class CityServiceImpl implements CityService {
-    private final CityModelRepository citySmallRepositpry;
     private final CityRepository cityRepository;
 
     @Autowired
-    public CityServiceImpl(CityModelRepository citySmallRepositpry, CityRepository cityRepository) {
-        this.citySmallRepositpry = citySmallRepositpry;
+    public CityServiceImpl(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 
     @Override
-    public List<CityModel> getCities() {
-        return citySmallRepositpry.findAll();
+    public List<CityDTO> getCities() {
+        return cityRepository.findAll().stream().map(city -> {
+            CityDTO cityDTO = new CityDTO();
+            cityDTO.setId(city.getId());
+            cityDTO.setName(city.getName());
+            return cityDTO;
+        }).collect(Collectors.toList());
     }
 }
